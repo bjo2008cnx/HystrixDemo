@@ -28,7 +28,7 @@ public class CustomerService {
     }
 
     public Customer getCustomerThroughDao(String customerId) {
-        logger.info("Get Customer {}", customerId);
+        logger.info("Get Customer in dao: {}", customerId);
         try {
             Customer customer = new Customer(customerId, "xianlinbox");
             customer.setContact(contactDao.getContact(customerId));

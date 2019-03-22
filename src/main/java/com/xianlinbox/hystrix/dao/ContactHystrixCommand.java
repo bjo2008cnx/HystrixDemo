@@ -19,7 +19,8 @@ public class ContactHystrixCommand extends HystrixCommand<Contact> {
 
     @Override
     public Contact run() throws Exception {
-        logger.info("Get contact for customer {}", customerId);
+        // 依赖逻辑封装在run()方法中
+        logger.info("Get contact for customer :: {}", customerId);
         String response = Request.Get("http://localhost:9090/customer/" + customerId + "/contact")
                 .connectTimeout(1000)
                 .socketTimeout(1000)

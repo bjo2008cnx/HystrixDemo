@@ -19,7 +19,7 @@ public class AddressHystrixCommand extends HystrixCommand<Address> {
 
     @Override
     public Address run() throws Exception {
-        logger.info("Get address for customer {}", customerId);
+        logger.info("Get address for customer in command: {}", customerId);
         String response = Request.Get("http://localhost:9090/customer/" + customerId + "/address")
                 .connectTimeout(1000)
                 .socketTimeout(1000)
